@@ -1,9 +1,11 @@
 ** start of undefined **
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Palindrome Checker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,18 +13,19 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #f0f0f0;
+            text-align: center;
         }
         h1 {
             color: #2c3e50;
-            text-align: center;
         }
         #text-input {
-            width: 100%;
+            width: calc(100% - 22px);
             padding: 10px;
             margin: 10px 0;
             border: 2px solid #3498db;
             border-radius: 5px;
             font-size: 16px;
+            text-align: center;
         }
         #check-btn {
             width: 100%;
@@ -43,41 +46,43 @@
             padding: 15px;
             border-radius: 5px;
             background-color: white;
-            text-align: center;
             font-size: 18px;
             color: #2c3e50;
         }
     </style>
 </head>
 <body>
-    <h1>Palindrome Checker</h1>
-    <input type="text" id="text-input" placeholder="Enter text to check">
-    <button id="check-btn">Check</button>
+    <h1>Verificador de Palíndromos</h1>
+    <input type="text" id="text-input" placeholder="Introduce un texto">
+    <button id="check-btn">Verificar</button>
     <div id="result"></div>
 
     <script>
         const checkPalindrome = () => {
-            const input = document.getElementById('text-input').value;
-            if (!input.trim()) {
+            const input = document.getElementById('text-input').value.trim();
+            if (!input) {
                 alert('Please input a value');
                 return;
             }
             
-            // Clean the input: lowercase and remove non-alphanumeric
-            const cleaned = input
-                .toLowerCase()
-                .replace(/[^a-z0-9]/g, '');
+            // Mantener el texto original para mostrarlo en el resultado
+            const originalInput = input;
             
+            // Limpiar el texto: convertir a minúsculas y eliminar caracteres no alfanuméricos
+            const cleaned = input.toLowerCase().replace(/[^a-z0-9]/gi, '');
+            
+            // Comparar con su versión invertida para determinar si es un palíndromo
             const isPalindrome = cleaned === [...cleaned].reverse().join('');
-            const resultText = `${input} ${isPalindrome ? 'is a palindrome' : 'is not a palindrome'}`;
             
-            document.getElementById('result').textContent = resultText;
+            // Mostrar el resultado con el texto original
+            document.getElementById('result').textContent = `${originalInput} ${isPalindrome ? 'is a palindrome' : 'is not a palindrome'}`;
         };
 
         document.getElementById('check-btn').addEventListener('click', checkPalindrome);
     </script>
 </body>
 </html>
+
 
 ** end of undefined **
 
