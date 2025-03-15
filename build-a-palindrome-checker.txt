@@ -1,0 +1,95 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        #text-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #check-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #check-btn:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    <input type="text" id="text-input" placeholder="Enter text to check">
+    <button id="check-btn">Check</button>
+    <div id="result"></div>
+
+    <script>
+        const checkPalindrome = () => {
+            const input = document.getElementById('text-input').value;
+            if (!input.trim()) {
+                alert('Please input a value');
+                return;
+            }
+            
+            // Clean the input: lowercase and remove non-alphanumeric
+            const cleaned = input
+                .toLowerCase()
+                .replace(/[^a-z0-9]/g, '');
+            
+            const isPalindrome = cleaned === [...cleaned].reverse().join('');
+            const resultText = `${input} ${isPalindrome ? 'is a palindrome' : 'is not a palindrome'}`;
+            
+            document.getElementById('result').textContent = resultText;
+        };
+
+        document.getElementById('check-btn').addEventListener('click', checkPalindrome);
+    </script>
+</body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
